@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+.vscode/sftp.json
+*.log
+recordings/
+*.avi
+*.mp4
