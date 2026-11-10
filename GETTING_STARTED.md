@@ -3,7 +3,7 @@
 A practical guide to connecting to, configuring, and working with the **PiPuck (e-puck2)** robots used in our lab.
 
 This guide covers the lab's robot identifiers, power controls, SSH access, Wi-Fi setup, file transfers, running Python programs, sensors, cameras, charging, and troubleshooting. Add the lab-specific photos wherever indicated.
-
+ 
 ## Table of Contents
 
 1. [Our PiPuck Robots](#1-our-pipuck-robots)
@@ -46,7 +46,15 @@ Before connecting to a PiPuck, make sure it is powered on.
 Each PiPuck has two blue buttons:
 
 - **Lower button — `ON/OFF`:** Used to turn the robot on and off.
+
+
+  <img width="200" alt="PiPuck_lower_button" src="https://github.com/user-attachments/assets/a6d05e53-5a27-42dc-88e5-05cdaf111e36" />
+
+
 - **Upper button — `auxON`:** Used to turn the Pi-puck extension on and off.
+
+  <img width="200" alt="PiPuck_higher_button" src="https://github.com/user-attachments/assets/f5b4cb59-9e2b-4e17-af37-c904ec6e2dd4" />
+
 
 #### Turning ON a PiPuck
 
@@ -54,16 +62,12 @@ Each PiPuck has two blue buttons:
 2. Press and hold it for a few seconds until the robot's lights turn on.
 3. Allow the robot some time to finish booting before attempting to connect via SSH.
 
-**[TODO: Insert a picture showing the lower ON/OFF button.]**
-
 #### Turning OFF a PiPuck
 
 1. Press and hold the **lower blue button (`ON/OFF`)** for a few seconds until the robot's lights turn off.
 2. For **pipuck0 and pipuck2** (the robots equipped with 360° cameras), there is an additional step:
    - Press and hold the **upper blue button (`auxON`)** for approximately **2 seconds**, then release it.
    - Wait until all remaining lights turn off.
-
-**[TODO: Insert a picture identifying both the ON/OFF and auxON buttons.]**
 
 > **Note:** Before turning off a PiPuck, make sure the robot has stopped moving and any running programs have been terminated safely.
 
@@ -231,7 +235,10 @@ If you want to use a new Wi-Fi network, configure it through the **USB serial co
 
 1. Make sure the robot is powered on.
 2. Connect a **data-capable Micro-USB cable** to the **middle USB port** near the R&B sensors.
-3. Connect the cable to your computer. A charge-only cable will not work for serial communication.
+
+   <img width="200" alt="PiPuck_middle_usb" src="https://github.com/user-attachments/assets/501dba55-9545-40e4-be9f-f00563fb2f2b" />
+
+4. Connect the cable to your computer. A charge-only cable will not work for serial communication.
 
 ### Step 2 — Identify the serial port
 
@@ -500,7 +507,7 @@ Replace `my_script.py` with the actual program name. It may require installed de
 
 **Stop a foreground program:** Press `Ctrl+C`. For motor-control programs, verify that the motors actually stop; safe cleanup must be implemented in the script.
 
-### 5.2 Run and Inspect a Background Program
+### 5.3 Run and Inspect a Background Program
 
 ```bash
 nohup python3 -u my_script.py > my_script.log 2>&1 < /dev/null &
@@ -538,11 +545,17 @@ with PiPuck() as puck:
 
 The **first** odometry update sets the reference encoder counts. The estimated pose changes only when you provide subsequent fresh frames.
 
-> **Photo placeholder:** `images/wheels-encoders.jpg` — wheels and encoder components.
 
 ### 6.2 Infrared (IR) Proximity Sensors
 
 The e-puck2 has **8 IR proximity sensors**, numbered `0` to `7`, arranged around its perimeter. Their reflected-light readings help detect nearby obstacles; raw values are **not centimeters without calibration**.
+
+
+<p>
+  <img width="200" alt="PiPuck IR proximity sensors" src="https://github.com/user-attachments/assets/92b1104d-9636-4718-bb9c-ce4535141150" /><br>
+  <sub> One of the IR proximity sensors on the PiPuck robot.</sub>
+</p>
+
 
 **Approximate sensor directions from the robot's perspective (camera/front facing forward):**
 
@@ -566,14 +579,17 @@ with PiPuck() as puck:
     puck.epuck2.set_wheel_speeds(0, 0)
 ```
 
-> **Photo placeholder:** `images/ir-proximity-sensors.jpg` — label `0`–`7` on an actual robot; confirm the exact orientation against the installed board.
-
 ### 6.3 Range & Bearing (R&B) Board
 
 The separate **R&B expansion board has 12 IR sensing/transmitting positions** around its ring. It exchanges short infrared messages and estimates the relative bearing and a **raw range value** of another robot.
 
 
-> **Photo placeholder:** `images/range-and-bearing-board.jpg` — label the 12 positions and mark the robot's forward direction. **[TO CONFIRM: Are the remaining R&B indices ordered clockwise or counterclockwise when viewed from above?]**
+<p>
+  <img width="200" alt="PiPuck range and bearing sensors" src="https://github.com/user-attachments/assets/c68d0539-ac7e-42d5-bc37-e9daaa1676a9" /><br>
+  <sub> One of the range and bearing sensors on the PiPuck robot.</sub>
+</p>
+
+
 
 Basic receive-only example (with the board driver installed):
 
@@ -595,10 +611,23 @@ For a real R&B experiment, initialize and calibrate the board correctly and coor
 ### 6.4 Other Sensors and Cameras
 
 - **Front-facing camera:** Used for ordinary images and video.
+
+  <p>
+  <img width="200" alt="PiPuck front camera" src="https://github.com/user-attachments/assets/5df2d30e-d98a-4167-8e27-21a37d7a4c41" /><br>
+</p>
+
 - **360° camera:** Installed on our `pipuck0` and `pipuck2` robots.
+
+  <p>
+  <img width="200" alt="PiPuck 360 camera" src="https://github.com/user-attachments/assets/49d2cc51-b354-44d8-a440-b61af34696f6" /><br>
+</p>
+
+
 - **Ground-sensor extension:** Installed on our `pipuck1`. This is a sensor board for detecting lines/changes on the floor; it uses downward-facing infrared sensors. The standard Pi-puck documentation includes examples in `~/Pi-puck/ground-sensor/` for supported installations.
 
-> **Photo placeholders:** `images/front-camera.jpg`, `images/360-camera.jpg`, `images/ground-sensor-extension.jpg`.
+  <p>
+  <img width="200" alt="PiPuck ground sensor" src="https://github.com/user-attachments/assets/fd005cc8-4c47-4a44-b784-e38d1e84b293" /><br>
+</p>
 
 ---
 
@@ -618,28 +647,42 @@ The presence of `/dev/video0` or `/dev/video1` does not by itself tell you which
 
 1. Open the existing `base-camera.py` and find the `if __name__ == "__main__":` section.
 2. Set the camera device number you want to test, for example:
+   > **Note:** The following code is only the relevant part of base-camera.py. Keep the file's existing imports, class definitions, and other code unchanged.
+   
+      ```python
+      cam = BaseCamera(device=1)
+      img = cam.get_picture()
+      if img is not None:
+          cv2.imwrite('pi0_base_camera_test1.jpg', img)
+          print('Image saved')
+      else:
+          print('No image captured; try a different device number')
+      ```
 
-   ```python
-   cam = BaseCamera(device=1)
-   img = cam.get_picture()
-   if img is not None:
-       cv2.imwrite('pi0_base_camera_test1.jpg', img)
-       print('Image saved')
-   else:
-       print('No image captured; try a different device number')
-   ```
-
-3. Save the file and run it from its directory:
+4. Save the file and run it from its directory:
 
    ```bash
    python3 base-camera.py
    ```
 
-4. The saved image should appear in the directory in which the script was run. Download it using SFTP or SCP to see whether it shows the **front** or **360°** camera view. Change `device=1` to another available device index and repeat if necessary.
+5. The saved image should appear in the directory from which the script was run. Download it using SFTP or SCP to check whether it was captured by the **front-facing camera** or the **360° camera**.
 
-> **Note:** The example above illustrates the relevant lines in your existing script; keep its imports and existing setup code. The actual filename in your repository is `base-camera.py` (with a hyphen).
+   **Important:** Camera device numbers can be `0`, `1`, or `2`, and their assignments may change after rebooting the robot. Do not assume that a particular device number always corresponds to the same camera. **Always verify the correct device number by capturing a test image before using the camera.**
 
-> **Photo placeholders:** `images/front-camera-example.jpg`, `images/360-camera-example.jpg`.
+   If necessary, change `device=1` to another available device number and repeat the test.
+
+<p>
+  <img width="250" alt="pi0_base_camera_test11" src="https://github.com/user-attachments/assets/7f4e142b-b96c-4225-925b-690aa1043d8b" /><br>
+  <sub> Image using the front camera.</sub>
+</p>
+
+
+<p>
+  <img width="250" alt="base_camera_test0" src="https://github.com/user-attachments/assets/c34dc77b-3900-43c9-a746-112b61cc241f" /><br>
+   <sub> Image using the 360 camera.</sub>
+</p>
+
+
 
 ### 7.2 Record a Video
 
@@ -677,7 +720,13 @@ Our robots have **three Micro-USB connectors** (upper, middle, and lower). Use t
    - **Green:** Charging complete.
    - **Blinking red:** The robot's battery is very low / the robot may soon shut down.
 
-> **Photo placeholder:** `images/usb-ports-charging.jpg` — label all three USB ports and the relevant charging LED.
+
+<br>
+<p>
+  <img width="200" alt="charging_image" src="https://github.com/user-attachments/assets/cc269f11-76cd-4055-b017-82914c9e3adb" /><br>
+   <sub> Charging the robot using a cable.</sub>
+</p>
+
 
 ### 8.2 Charge Using the Lab Charging Station
 
@@ -686,7 +735,17 @@ Our robots have **three Micro-USB connectors** (upper, middle, and lower). Use t
 3. Check that the **two small indicator lights on top of the robot** turn on, as observed on our setup.
 4. Make sure the robot remains properly seated and in contact with the charger.
 
-> **Photo placeholder:** `images/charging-dock-contacts.jpg` — charging pins, docking contacts, and indicator lights.
+<br>
+<p>
+  <img width="200" alt="charge_pins_image" src="https://github.com/user-attachments/assets/95f8572f-d01f-4dea-a27c-f577c9dca3ff" /><br>
+   <sub> Charging pins on the robot.</sub>
+</p>
+
+<p>
+  <img width="200" alt="charging_station" src="https://github.com/user-attachments/assets/485493ea-aafb-45ad-becd-e2fe6d92723b" /><br>
+   <sub> Charging station. notice the indicator light when the pins are contacting the charging station</sub>
+</p>
+
 
 ### 8.3 Check Battery Percentage over SSH
 
@@ -768,6 +827,12 @@ If the display freezes or the robot stops responding:
 1. **Stop the experiment if possible**, and make sure the wheels cannot move unexpectedly.
 2. If Linux still responds over SSH, use the appropriate clean reboot or shutdown command (for example `sudo reboot`, after stopping motor-control programs).
 3. If the **e-puck robot firmware** specifically needs a restart, the small **reset button** on the robot can be pressed. **This resets the robot firmware only; it does not reboot the Raspberry Pi or necessarily fix a frozen Linux system.** There is no need to switch off the entire assembly just to restart the e-puck firmware.
+   
+   <p>
+     <img width="200" alt="reset_button" src="https://github.com/user-attachments/assets/72af9176-fc1d-4f10-abd6-5429297a2e55" /><br>
+      <sub> reset button</sub>
+   </p>
+   
 4. If the Raspberry Pi or camera remains frozen, try the normal **Pi-puck power-down using `auxON`** and restart as explained in Section 2.1, allowing time for clean shutdown when possible.
 
 > [!CAUTION]
