@@ -1,4 +1,4 @@
-# 🤖 PiPuck Robotics — Early Experiments
+# PiPuck Robotics — Early Experiments
 
 This repository contains early robotics experiments developed using the **PiPuck (e-puck2)** platform. The project explores autonomous navigation, obstacle avoidance, infrared (IR) proximity sensing, and cooperative behavior between robots.
 
