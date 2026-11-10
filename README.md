@@ -1,4 +1,4 @@
-# 🤖 PiPuck Robotics Project
+# PiPuck Robotics Project
 
 This repository contains robotics projects and experiments developed using the PiPuck (e-puck2) platform.
 
