@@ -32,7 +32,7 @@ The main cooperative experiment combines three files:
 
 **Note:** This experiment uses IR proximity sensing for following and Bluetooth for coordination. It is separate from the newer Range & Bearing (R&B) mission.
 
-## 🛠️ Technologies
+## Technologies
 
 - Python 3
 - PiPuck / e-puck2 robotics platform
@@ -41,6 +41,6 @@ The main cooperative experiment combines three files:
 - Wheel-encoder odometry
 - Feedback-based motion control
 
-## 🎯 Project Purpose
+## Project Purpose
 
 These experiments explore fundamental concepts in mobile robotics and provide a foundation for developing more advanced cooperative multi-robot
