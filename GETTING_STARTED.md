@@ -424,7 +424,7 @@ If you receive `ModuleNotFoundError: No module named 'pipuck'`, you need to inst
 
 #### Step 2 — Installing the SDK using setup.py
 
-Our project includes a `setup.py` file:
+Our main_rab_mission includes a `setup.py` file:
 
 ```python
 from setuptools import setup, find_packages
@@ -671,16 +671,18 @@ The presence of `/dev/video0` or `/dev/video1` does not by itself tell you which
 
    If necessary, change `device=1` to another available device number and repeat the test.
 
-<p>
-  <img width="250" alt="pi0_base_camera_test11" src="https://github.com/user-attachments/assets/7f4e142b-b96c-4225-925b-690aa1043d8b" /><br>
-  <sub> Image using the front camera.</sub>
-</p>
+   images examples from the robot's cameras:
 
-
-<p>
-  <img width="250" alt="base_camera_test0" src="https://github.com/user-attachments/assets/c34dc77b-3900-43c9-a746-112b61cc241f" /><br>
-   <sub> Image using the 360 camera.</sub>
-</p>
+   <p>
+     <img width="250" alt="pi0_base_camera_test11" src="https://github.com/user-attachments/assets/7f4e142b-b96c-4225-925b-690aa1043d8b" /><br>
+     <sub> Image using the front camera.</sub>
+   </p>
+  
+  
+   <p>
+     <img width="250" alt="base_camera_test0" src="https://github.com/user-attachments/assets/c34dc77b-3900-43c9-a746-112b61cc241f" /><br>
+      <sub> Image using the 360 camera.</sub>
+   </p>
 
 
 
