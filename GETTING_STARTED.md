@@ -22,6 +22,7 @@ This guide covers the lab's robot identifiers, power controls, SSH access, Wi-Fi
 8. [Charging and Checking Battery Level](#8-charging-and-checking-battery-level)
 9. [Troubleshooting](#9-troubleshooting)
 10. [Useful Commands](#10-useful-commands)
+11. [Useful Links](#11-useful-links)
 
 ---
 
@@ -868,10 +869,12 @@ When a problem occurs, note the robot hostname, selected Wi-Fi network, exact co
 
 ---
 
-## References
+## 11. Useful Links
 
 - [GCtronic — Pi-puck hardware, power controls, console, reset, and supported sensors](https://www.gctronic.com/doc/index.php?title=Pi-puck)
+- [GCtronic — Range and Bearing extension documentation](https://www.gctronic.com/doc/index.php?title=Others_Extensions#Range_and_bearing)
 - [Natizyskunk — SFTP for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=Natizyskunk.sftp)
 - [Natizyskunk SFTP configuration](https://github.com/Natizyskunk/vscode-sftp/wiki/Configuration)
 
+  
 *This guide is a living document. Add labeled photos and verified lab-specific recovery procedures as they become available.*
