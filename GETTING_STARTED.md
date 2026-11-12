@@ -424,7 +424,9 @@ If you receive `ModuleNotFoundError: No module named 'pipuck'`, you need to inst
 
 #### Step 2 — Installing the SDK using setup.py
 
-Our main_rab_mission includes a `setup.py` file:
+Our main_rab_mission includes a `setup.py` file
+
+The following is an example of a setup.py file. Replace author_name with your name when creating your own project:
 
 ```python
 from setuptools import setup, find_packages
