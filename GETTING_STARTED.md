@@ -2,7 +2,7 @@
 
 A practical guide to connecting to, configuring, and working with the **PiPuck (e-puck2)** robots used in our lab.
 
-This guide covers the lab's robot identifiers, power controls, SSH access, Wi-Fi setup, file transfers, running Python programs, sensors, cameras, charging, and troubleshooting. Add the lab-specific photos wherever indicated.
+This guide covers the lab's robot identifiers, power controls, SSH access, Wi-Fi setup, file transfers, running Python programs, sensors, cameras, charging, and troubleshooting.
  
 ## Table of Contents
 
@@ -839,8 +839,6 @@ If the display freezes or the robot stops responding:
 
 > [!CAUTION]
 > **Last-resort hardware procedure — ask Omri or another experienced lab member if you are unsure.** In the lab, the upper Raspberry Pi/Pi-puck board has sometimes been disconnected from its header pins and reseated to recover a persistent freeze. This is **not** the same as pressing the reset button. **Do not attempt it while any power source is connected or active**, and do not pull or strain the wired side of the assembly. The pins must be aligned correctly when reseating and must never be forced. If you cannot confidently isolate all power sources, **do not attempt this procedure: ask Omri**.
-
-> **Photo placeholders:** `images/pipuck-reset-button.jpg`, `images/pipuck-upper-board.jpg`.
 
 ### 9.9 Other Issues Worth Recording
 
